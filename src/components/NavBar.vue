@@ -35,12 +35,17 @@
                 role="button"
                 data-bs-toggle="dropdown"
                 aria-expanded="false"
+                @click.prevent
               >
                 Options
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">About Us</a></li>
-                <li><a class="dropdown-item" href="#">Materials</a></li>
+                <li @click="navigateTo('/aboutus')">
+                  <a class="dropdown-item" href="#">About Us</a>
+                </li>
+                <li @click="navigateTo('/materials')">
+                  <a class="dropdown-item" href="#">Materials</a>
+                </li>
               </ul>
             </li>
           </ul>
@@ -61,26 +66,35 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  name: "NavBar",
+  methods: {
+    navigateTo(route) {
+      this.$router.push(route);
+    },
+  },
+};
+</script>
 
 <style scoped>
 @import url("https://fonts.googleapis.com/css2?family=Dhurjati&family=Ephesis&family=Smooch+Sans:wght@200;300;500&family=Space+Mono&display=swap");
 
 #app {
-  padding-top: 30px; /* Reduced padding to accommodate smaller navbar */
+  padding-top: 30px;
 }
 
 #navBar {
-  height: 100px; /* Reduced height for the navbar */
+  height: 100px;
 }
 
 #navBar .navbar-brand {
-  font-size: 1.2rem; /* Smaller font size for the brand */
-  padding: 10px 20px; /* Reduced padding for the brand */
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }
 
 #navBar .nav-item {
-  font-size: 0.9rem; /* Smaller font size for navbar items */
+  font-size: 0.9rem;
 }
 
 .navbar-brand:hover {

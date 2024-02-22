@@ -52,18 +52,16 @@
       </div>
     </div>
   </FormCard>
-  <SocialClub></SocialClub>
+  <social-club></social-club>
 </template>
 
 <script>
-import SocialClub from "../components/SocialClub.vue";
 import FormCard from "../components/FormCard.vue";
 
 export default {
   name: "SignUp",
   components: {
     FormCard,
-    SocialClub,
   },
 };
 </script>

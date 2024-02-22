@@ -21,7 +21,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import HelloWorld from "@/components/HelloWorld.vue";
 import SocialClub from "@/components/SocialClub.vue";
 export default {
@@ -67,33 +66,33 @@ button {
 }
 #typ {
   overflow: hidden;
-  border-right: 0.15em solid orange; /* Cursor effect */
+  border-right: 0.15em solid orange;
   white-space: nowrap;
   margin: 0;
-  animation: typing 2s steps(30, end); /* Change animation duration as needed */
+  animation: typing 2s steps(30, end);
 }
 #typ1 {
   overflow: hidden;
-  border-right: 0.15em solid rgb(134, 93, 18); /* Cursor effect */
+  border-right: 0.15em solid rgb(134, 93, 18);
   white-space: nowrap;
   margin: 0;
-  animation: typing 2s steps(30, end); /* Change animation duration as needed */
+  animation: typing 2s steps(30, end);
 }
 
 #typ2 {
   overflow: hidden;
-  border-right: 0.15em solid rgb(220, 91, 4); /* Cursor effect */
+  border-right: 0.15em solid rgb(220, 91, 4);
   white-space: nowrap;
   margin: 0;
-  animation: typing 2s steps(30, end); /* Change animation duration as needed */
+  animation: typing 2s steps(30, end);
 }
 
 #typ3 {
   overflow: hidden;
-  border-right: 0.15em solid rgb(134, 18, 18); /* Cursor effect */
+  border-right: 0.15em solid rgb(134, 18, 18);
   white-space: nowrap;
   margin: 0;
-  animation: typing 2s steps(30, end); /* Change animation duration as needed */
+  animation: typing 2s steps(30, end);
 }
 
 @keyframes typing {
@@ -127,10 +126,10 @@ button {
   background-color: whitesmoke;
   color: black;
   font-family: "Dhurjati", sans-serif;
-  padding: 0; /* Remove default padding */
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center items horizontally */
+  align-items: center;
 
   margin-top: 10px;
   font-size: 1.5rem;
@@ -143,7 +142,7 @@ button {
 
 .wholi li {
   list-style-type: none;
-  margin: 5px 0; /* Add margin for spacing between items */
+  margin: 5px 0;
   text-align: center;
 }
 

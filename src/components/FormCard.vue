@@ -17,7 +17,7 @@ export default {
   background-color: whitesmoke;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 1000px; /* You can adjust the maximum width as needed */
+  max-width: 1000px;
   margin: 0 auto;
   padding: 50px 50px;
   margin-top: 50px;

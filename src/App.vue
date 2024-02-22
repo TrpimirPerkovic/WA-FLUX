@@ -39,8 +39,16 @@
                 Options
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="#">About Us</a></li>
-                <li><a class="dropdown-item" href="#">Materials</a></li>
+                <li>
+                  <router-link class="dropdown-item" to="/aboutus"
+                    >About Us</router-link
+                  >
+                </li>
+                <li>
+                  <router-link class="dropdown-item" to="/materials"
+                    >Materials</router-link
+                  >
+                </li>
               </ul>
             </li>
           </ul>
@@ -59,7 +67,7 @@
       </div>
     </nav>
   </div>
-  <form-card></form-card>
+  <FormCard></FormCard>
   <router-view />
 </template>
 
@@ -67,20 +75,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Dhurjati&family=Ephesis&family=Smooch+Sans:wght@200;300;500&family=Space+Mono&display=swap");
 
 #app {
-  padding-top: 50px; /* Reduced padding to accommodate smaller navbar */
+  padding-top: 50px;
 }
 
 #navBar {
-  height: 100px; /* Reduced height for the navbar */
+  height: 100px;
 }
 
 #navBar .navbar-brand {
-  font-size: 1.2rem; /* Smaller font size for the brand */
-  padding: 10px 20px; /* Reduced padding for the brand */
+  font-size: 1.2rem;
+  padding: 10px 20px;
 }
 
 #navBar .nav-item {
-  font-size: 0.9rem; /* Smaller font size for navbar items */
+  font-size: 0.9rem;
 }
 
 .navbar-brand:hover {

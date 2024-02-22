@@ -6,7 +6,6 @@
       <div class="row">
         <div class="col"></div>
         <div class="col">
-          <!-- Your login form content -->
           <form>
             <div class="form-group" id="mail">
               <label for="exampleInputEmail1">Email address</label>
@@ -29,20 +28,19 @@
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
-          <!-- End of login form content -->
         </div>
         <div class="col"></div>
       </div>
     </div>
   </FormCard>
-  <SocialClub></SocialClub>
+  <social-club></social-club>
 </template>
 
 <script>
 import FormCard from "@/components/FormCard.vue";
-import SocialClub from "@/components/SocialClub.vue";
+
 export default {
-  components: { FormCard, SocialClub },
+  components: { FormCard },
 };
 </script>
 
