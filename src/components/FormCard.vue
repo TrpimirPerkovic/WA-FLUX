@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 .form-card {
   background-color: whitesmoke;
   border-radius: 10px;
