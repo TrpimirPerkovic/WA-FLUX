@@ -63,6 +63,36 @@ export default {
   components: {
     FormCard,
   },
+  data() {
+    return {
+      email: "",
+      password: "",
+      passwordRepeat: "",
+    };
+  },
+  methods: {
+    async signup() {
+      try {
+        const response = await fetch("http://localhost:3000/signup", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: this.email,
+            password: this.password,
+          }),
+        });
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+        // You can handle successful signup here, e.g., redirect to login page
+        console.log("User signed up successfully");
+      } catch (error) {
+        console.error("There was a problem with your fetch operation:", error);
+      }
+    },
+  },
 };
 </script>
 
