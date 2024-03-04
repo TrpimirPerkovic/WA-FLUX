@@ -4,9 +4,11 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const app = express();
 const port = 3000;
+const { user } = require("./data/userData");
+
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.json());
 const { MongoClient, ServerApiVersion } = require("mongodb");
 const uri =
   "mongodb+srv://trpimirperkovic:lmao1234@cluster0.d4xrttg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
@@ -36,22 +38,38 @@ async function run() {
 }
 run().catch(console.dir);
 // -------------------------------------------------------------------
+/*
+app.post("/user", async (req, res) => {
+  try {
+    const User = await user.create(req.body);
+    res.status(200).json(User);
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: error });
+  }
+}); */
 
-const userSchema = new mongoose.Schema({
-  email: String,
-  password: String,
+app.post("/user", async (req, res) => {
+  try {
+    const User = await user.create(req.body);
+    console.log("User created:", User);
+    res.status(200).json(User);
+  } catch (error) {
+    console.log("Error creating user:", error);
+    res.status(500).json({ message: error });
+  }
 });
 
-const userData = mongoose.model("userData", userSchema);
-
-userData
-  .find({})
-  .then((users) => {
-    console.log("Users:", users);
-  })
-  .catch((error) => {
+// Fetch all users
+app.get("/user", async (req, res) => {
+  try {
+    const users = await user.find({});
+    res.status(200).json(users);
+  } catch (error) {
     console.error("Error fetching users:", error);
-  });
+    res.status(500).json({ message: "Error fetching users" });
+  }
+});
 
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);

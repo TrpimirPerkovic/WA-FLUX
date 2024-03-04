@@ -2,10 +2,13 @@ const mongoose = require("mongoose");
 
 // Connect to MongoDB
 mongoose
-  .connect("mongodb://localhost:0.0.0.0/userData", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://trpimirperkovic:lmao1234@cluster0.d4xrttg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log("DB connected successfully!");
   })
