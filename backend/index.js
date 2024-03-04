@@ -2,14 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const { MongoClient, ServerApiVersion } = require("mongodb");
 const app = express();
+const dbName = "userData";
 const port = 3000;
 const { user } = require("./data/userData");
 
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
-const { MongoClient, ServerApiVersion } = require("mongodb");
+
 const uri =
   "mongodb+srv://trpimirperkovic:lmao1234@cluster0.d4xrttg.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
@@ -49,19 +51,20 @@ app.post("/user", async (req, res) => {
   }
 }); */
 
-app.post("/user", async (req, res) => {
-  try {
-    const User = await user.create(req.body);
-    console.log("User created:", User);
-    res.status(200).json(User);
-  } catch (error) {
-    console.log("Error creating user:", error);
-    res.status(500).json({ message: error });
-  }
-});
-
 // Fetch all users
-app.get("/user", async (req, res) => {
+MongoClient.connect("mongodb://localhost:27017/")
+  .then((client) => {
+    const connect = client.db(dbName);
+    const collection = connect.collection("users");
+    collection.find({}).then((ans) => {
+      console.log(ans);
+    });
+  })
+  .catch((err) => {
+    console.error(err);
+  });
+/*
+app.get("/", async (req, res) => {
   try {
     const users = await user.find({});
     res.status(200).json(users);
@@ -70,7 +73,7 @@ app.get("/user", async (req, res) => {
     res.status(500).json({ message: "Error fetching users" });
   }
 });
-
+*/
 app.listen(port, () => {
   console.log(`App is listening on ${port}`);
 });

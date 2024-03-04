@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
 });
 
 const user = mongoose.model("user", userSchema);
-/*
+
 user
   .find({})
   .then((users) => {
@@ -15,6 +15,5 @@ user
   .catch((error) => {
     console.error("Error fetching users:", error);
   });
-*/
 
 module.exports = user;
