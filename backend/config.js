@@ -1,14 +1,19 @@
 const mongoose = require("mongoose");
-const connect = mongoose.connect("mongodb://localhost:27017/userData");
-// pass: qzaTuEDTpOSlEf2d
-connect
+
+// Connect to MongoDB
+mongoose
+  .connect("mongodb://localhost:0.0.0.0/userData", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("DB connected successfully!");
   })
-  .catch(() => {
-    console.error("Data cannot be reached!");
+  .catch((error) => {
+    console.error("Failed to connect to MongoDB:", error);
   });
 
+// Define Schema
 const LoginSchema = new mongoose.Schema({
   email: {
     type: String,
@@ -20,6 +25,5 @@ const LoginSchema = new mongoose.Schema({
   },
 });
 
-const collection = new mongoose.model("users", LoginSchema);
-
-module.exports = collection;
+// Create and export model
+module.exports = mongoose.model("User", LoginSchema); // Export the model, not the instance

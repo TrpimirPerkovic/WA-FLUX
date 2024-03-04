@@ -81,12 +81,13 @@ export default {
           body: JSON.stringify({
             email: this.email,
             password: this.password,
+            passwordRepeat: this.passwordRepeat,
           }),
         });
         if (!response.ok) {
           throw new Error("Network response was not ok");
         }
-        // You can handle successful signup here, e.g., redirect to login page
+
         console.log("User signed up successfully");
       } catch (error) {
         console.error("There was a problem with your fetch operation:", error);
